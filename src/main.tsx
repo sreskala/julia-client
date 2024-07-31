@@ -7,6 +7,7 @@ import {
 import App from './App.tsx'
 import ErrorPage from './NotFound.tsx';
 import './index.css'
+import Planets from './routes/Planets.tsx';
 
 const router = createBrowserRouter([
   {
@@ -16,7 +17,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/planets",
-    element: <p>Planets</p>
+    element: <Planets />
   }
 ]);
 
