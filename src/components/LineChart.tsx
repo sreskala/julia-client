@@ -6,14 +6,6 @@ interface ChartProps {
     planets: Planet[]
 }
 
-const XLabel = () => {
-    return (
-        <div className="line-chart-x-label">
-            Planet Name
-        </div>
-    )
-}
-
 const Chart = ({ planets }: ChartProps) => {
 
     const data = planets.filter(planet => planet.period !== -1)
@@ -26,7 +18,7 @@ const Chart = ({ planets }: ChartProps) => {
             <XAxis dataKey="name">
                 <Label value="Planet Name" position="bottom"/>
             </XAxis>
-            <YAxis />
+            <YAxis label={{ value: "Days", angle: -90, position: "insideLeft" }}/>
             <Tooltip />
         </LineChart>
         </ResponsiveContainer>
