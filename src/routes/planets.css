@@ -3,3 +3,7 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto
 }
+
+.planet-container {
+    display: flex;
+}

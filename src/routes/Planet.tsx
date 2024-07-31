@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { Planet as PlanetType } from "../types/Planet";
 
@@ -9,7 +8,7 @@ const base_route = import.meta.env.VITE_API_ROUTE;
 export async function loader({ params }) {
 
     try {
-        const res = await axios.get(`${base_route}/${params.id}`, {
+        const res = await axios.get(`${base_route}/planets/${params.id}`, {
             withCredentials: false
         });
     

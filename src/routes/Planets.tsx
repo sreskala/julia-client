@@ -53,7 +53,7 @@ function Planets() {
             <div className="outside-container">
             {
                 currentPlanets.map((planet, indx) => (
-                    <div key={indx} className="container">
+                    <div key={indx} className="planet-container">
                         <SinglePlanet planet={planet} index={indx}/>
                     </div>
                 ))
