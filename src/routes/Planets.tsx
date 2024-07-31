@@ -49,7 +49,7 @@ function Planets() {
 
     return (
         <>
-         <Pagination planetsPerPage={planetsPerPage} totalPlanets={planets.length} handlePageClick={(num) => setCurrentPage(num)}/>
+         <Pagination planetsPerPage={planetsPerPage} totalPlanets={planets.length} handlePageClick={(num) => setCurrentPage(num)} currentPage={currentPage}/>
             <div className="outside-container">
             {
                 currentPlanets.map((planet, indx) => (
