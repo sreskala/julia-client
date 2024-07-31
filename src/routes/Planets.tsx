@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import {Planet} from "../types/Planet";
+import SinglePlanet from "../components/SinglePlanet";
+import "./planets.css"
 
 function Planets() {
     const navigate = useNavigate();
@@ -38,11 +40,15 @@ function Planets() {
 
     return (
         <>
+            <div className="outside-container">
             {
-                planets.map(planet => (
-                    <p>{planet.id}</p>
+                planets.map((planet, indx) => (
+                    <div key={indx} className="container">
+                        <SinglePlanet planet={planet} index={indx}/>
+                    </div>
                 ))
             }
+            </div>
         </>
     )
 }
