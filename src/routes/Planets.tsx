@@ -5,23 +5,28 @@ import { useNavigate } from "react-router-dom";
 import {Planet} from "../types/Planet";
 import SinglePlanet from "../components/SinglePlanet";
 import "./planets.css"
+import Pagination from "../components/Pagination";
 
 function Planets() {
     const navigate = useNavigate();
     const [planets, setPlanets] = useState<Planet[]>([]);
     const [loading, setLoading] = useState(true);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [planetsPerPage, setPlanetsPerPage] = useState(20);
 
     const base_route = import.meta.env.VITE_API_ROUTE;
+    const all_planets_route = `${base_route}/all_planets`
 
     useEffect(() => {
         const fetchPlanets = async () => {
             setLoading(true)
             try {
-                const res = await axios.get(base_route, {
+                const res = await axios.get(all_planets_route, {
                     withCredentials: false
                 })
 
                 setPlanets(res.data)
+                setLoading(false);
             } catch (error) {
                 console.error(error)
                 navigate('/error')
@@ -29,7 +34,6 @@ function Planets() {
         }
 
         fetchPlanets();
-        setLoading(false);
     }, [])
 
     if (loading) {
@@ -38,17 +42,22 @@ function Planets() {
         )
     }
 
+    const indexOfLastPlanet = currentPage * planetsPerPage;
+    const indexOfFirstPlanet = indexOfLastPlanet - planetsPerPage;
+    const currentPlanets = planets.slice(indexOfFirstPlanet, indexOfLastPlanet); 
+
     return (
         <>
             <div className="outside-container">
             {
-                planets.map((planet, indx) => (
+                currentPlanets.map((planet, indx) => (
                     <div key={indx} className="container">
                         <SinglePlanet planet={planet} index={indx}/>
                     </div>
                 ))
             }
             </div>
+            <Pagination planetsPerPage={planetsPerPage} totalPlanets={planets.length} handlePageClick={(num) => setCurrentPage(num)}/>
         </>
     )
 }

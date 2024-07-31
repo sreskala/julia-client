@@ -10,8 +10,12 @@ import { Planet } from "../types/Planet";
 //     period: number;
 //     yearDiscovered:number;
 // }
+interface SinglePlanetProps {
+    planet: Planet;
+    index: number;
+}
 
-const SinglePlanet = ({planet, index}: {planet: Planet, index: number}) => {
+const SinglePlanet = ({planet, index}: SinglePlanetProps) => {
     return (
         <>
             <h1>{planet.name}</h1>

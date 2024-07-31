@@ -28,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: "/not-found",
     element: <ErrorPage />
+  },
+  {
+    path: "/error",
+    element: <ErrorPage />
   }
 ]);
 
