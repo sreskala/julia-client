@@ -15,3 +15,20 @@
     flex-direction: row;
     justify-content: center;
 }
+
+.plot-select-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.plot-select-button {
+    margin: 0 2rem;
+    width: 5rem;
+    font-size: 30px;
+}
+
+[disabled] {
+    opacity: .5;
+    cursor: not-allowed;
+}

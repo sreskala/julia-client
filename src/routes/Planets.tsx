@@ -100,10 +100,10 @@ function Planets() {
     return (
         <>
         <Pagination planetsPerPage={planetsPerPage} totalPlanets={planets.length} handlePageClick={(num) => setCurrentPage(num)} currentPage={currentPage}/>
-        <div>
-            <button disabled={plot === 0} onClick={(e) => handleDecreasePlot(e) }>{"<"}</button>
+        <div className="plot-select-container">
+            <button className="plot-select-button" disabled={plot === 0} onClick={(e) => handleDecreasePlot(e) }>{"<"}</button>
             <h2>{getPlotTitle(plot)}</h2>
-            <button disabled={plot === 3} onClick={(e) => handleIncreasePlot(e)}>{">"}</button>
+            <button className="plot-select-button" disabled={plot === 3} onClick={(e) => handleIncreasePlot(e)}>{">"}</button>
         </div>
         <div className="plot-container">
             {getPlot(plot)}
