@@ -1,4 +1,4 @@
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Label, ResponsiveContainer } from "recharts";
+import { Scatter, Legend , CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer, ScatterChart, ZAxis } from "recharts";
 import { Planet } from "../types/Planet";
 import "./components.css";
 
@@ -11,9 +11,17 @@ const ScatterPlot = ({ planets }: ScatterPlotProps) => {
 
     console.log(data)
     return (
-        <div>
-            Im a plot
-        </div>
+        <ResponsiveContainer width={1000} height={400}>
+            <ScatterChart width={1000} height={400} data={data} margin={{ bottom: 20}}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="distance" type="number" name="distance" unit="ly" />
+                <YAxis dataKey="yearDiscovered" type="number" name="year" />
+                <ZAxis dataKey="name" name="planet name" />
+                <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+                <Legend />
+                <Scatter name="Planet" data={data} fill="#8884d8" />
+            </ScatterChart>
+        </ResponsiveContainer>
     )
 }
 

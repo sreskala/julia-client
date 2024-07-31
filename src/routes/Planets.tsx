@@ -8,6 +8,8 @@ import "./planets.css"
 import Pagination from "../components/Pagination";
 import LineChart from "../components/LineChart";
 import ScatterPlot from "../components/ScatterPlot";
+import BarChart from "../components/BarChart";
+import PieChart from "../components/PieChart";
 
 function Planets() {
     const navigate = useNavigate();
@@ -74,16 +76,16 @@ function Planets() {
             element: <LineChart planets={currentPlanets}/>
         },
         {
-            title: "Scatter Plot",
-            element: <h1>Scatter</h1>
+            title: "Year Discovered vs Distance in Light Years",
+            element: <ScatterPlot planets={currentPlanets} />
         },
         {
-            title: "Bar Chart",
-            element: <h1>Bar</h1>
+            title: "Mass of Planet in Mj",
+            element: <BarChart planets={currentPlanets}/>
         },
         {
-            title: "Pie Chart",
-            element: <h1>Pir</h1>
+            title: "Total Mass of Planets in Mj",
+            element: <PieChart planets={currentPlanets}/>
         }
     ]
 
@@ -107,7 +109,6 @@ function Planets() {
             {getPlot(plot)}
         {/* <LineChart planets={currentPlanets}/> */}
         </div>
-            <ScatterPlot planets={currentPlanets}/>
             <div className="outside-container">
             {
                 currentPlanets.map((planet, indx) => (
