@@ -6,6 +6,7 @@ import {Planet} from "../types/Planet";
 import SinglePlanet from "../components/SinglePlanet";
 import "./planets.css"
 import Pagination from "../components/Pagination";
+import Chart from "../components/LineChart";
 
 function Planets() {
     const navigate = useNavigate();
@@ -48,6 +49,7 @@ function Planets() {
 
     return (
         <>
+         <Pagination planetsPerPage={planetsPerPage} totalPlanets={planets.length} handlePageClick={(num) => setCurrentPage(num)}/>
             <div className="outside-container">
             {
                 currentPlanets.map((planet, indx) => (
@@ -57,7 +59,8 @@ function Planets() {
                 ))
             }
             </div>
-            <Pagination planetsPerPage={planetsPerPage} totalPlanets={planets.length} handlePageClick={(num) => setCurrentPage(num)}/>
+           
+            <Chart planets={currentPlanets}/>
         </>
     )
 }

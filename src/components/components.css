@@ -1,0 +1,13 @@
+li {
+    list-style-type: none;
+}
+
+.page-number-container {
+    display: flex;
+    justify-content: center;
+}
+
+.line-chart-label {
+    margin-top: 10px;
+    z-index: 4
+}

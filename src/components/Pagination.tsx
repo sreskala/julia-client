@@ -13,7 +13,7 @@ const Pagination = ({planetsPerPage, totalPlanets, handlePageClick}: PaginationP
 
     return (
        <nav>
-        <ul>
+        <ul className="page-number-container">
             {pageNumbers.map(number => (
                 <li key={number}>
                     <button onClick={() => handlePageClick(number)}>
