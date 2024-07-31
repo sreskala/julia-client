@@ -8,6 +8,7 @@ import App from './App.tsx'
 import ErrorPage from './NotFound.tsx';
 import './index.css'
 import Planets from './routes/Planets.tsx';
+import Planet, {loader as planetLoader } from './routes/Planet.tsx';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,15 @@ const router = createBrowserRouter([
   {
     path: "/planets",
     element: <Planets />
+  },
+  {
+    path: "/planets/:id",
+    element: <Planet />,
+    loader: planetLoader
+  },
+  {
+    path: "/not-found",
+    element: <ErrorPage />
   }
 ]);
 

@@ -1,4 +1,4 @@
-type Planet = {
+export type Planet = {
     id: number;
     name: string;
     eponym: string;
@@ -8,5 +8,3 @@ type Planet = {
     period: number;
     yearDiscovered:number;
 }
-
-export default Planet;

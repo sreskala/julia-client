@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import Planet from "../types/Planet";
+import {Planet} from "../types/Planet";
 
 function Planets() {
     const navigate = useNavigate();
@@ -18,8 +18,6 @@ function Planets() {
                 const res = await axios.get(base_route, {
                     withCredentials: false
                 })
-
-                console.log(res);
 
                 setPlanets(res.data)
             } catch (error) {
