@@ -16,7 +16,7 @@ function Planets() {
     const [planets, setPlanets] = useState<Planet[]>([]);
     const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
-    const [planetsPerPage, setPlanetsPerPage] = useState(10);
+    const [planetsPerPage] = useState(10);
     
     const [plot, setPlot] = useState(0);
 

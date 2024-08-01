@@ -7,7 +7,7 @@ import { Mesh } from "three";
 import "./models.css"
 
 function MeshComponent() {
-    const fileUrl = "../../public/scene.gltf";
+    const fileUrl = "/scene.gltf";
     const mesh = useRef<Mesh>(null!);
     const gltf = useLoader(GLTFLoader, fileUrl);
 
