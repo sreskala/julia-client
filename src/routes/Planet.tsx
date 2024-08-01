@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useLoaderData, Link } from "react-router-dom";
 import { Planet as PlanetType } from "../types/Planet";
-//import { LavaPlanet } from "../models/Planet";
+import { LavaPlanet } from "../models/Planet";
 import { Stats } from "../components/SinglePlanet";
 
 import "./planets.css";
@@ -30,17 +30,6 @@ export async function loader({ params }) {
     }
 }
 
-// export type Planet = {
-//     id: number;
-//     name: string;
-//     eponym: string;
-//     starName: string;
-//     distance: number;
-//     mass: number;
-//     period: number;
-//     yearDiscovered:number;
-// }
-
 function Planet() {
     //@ts-ignore
     const { planetData } = useLoaderData()
@@ -56,9 +45,9 @@ function Planet() {
     }
     return (
         <>
-        {/* <div className="single-planet-container">
+        <div className="single-planet-container">
             <LavaPlanet />
-        </div> */}
+        </div>
         <div className="single-planet-data-container">
             <h1 className="planet-title">{planetData?.name}</h1>
             <h2 className="planet-subtitle">{planetData?.eponym}</h2>
