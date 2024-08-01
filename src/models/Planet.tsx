@@ -7,9 +7,8 @@ import { Mesh } from "three";
 import "./models.css"
 
 function MeshComponent() {
-    const fileUrl = "/scene.gltf";
     const mesh = useRef<Mesh>(null!);
-    const gltf = useLoader(GLTFLoader, fileUrl);
+    const gltf = useLoader(GLTFLoader, '/scene.gltf');
 
     useFrame(() => {
         mesh.current.rotation.y += 0.01;
