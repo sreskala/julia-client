@@ -4,6 +4,8 @@ This is the frontend client app for my julian-planets backend web application. T
 
 For the frontend I didn't have as much time as I would have liked to style it and take time making it look good, although this is one of the things I would most definitely improve if given more time.
 
+![planet](https://github.com/sreskala/julia-client/blob/main/src/assets/earth-7503926_1920.jpg)
+
 ---
 
 ## Components
