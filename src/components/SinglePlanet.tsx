@@ -9,7 +9,7 @@ interface SinglePlanetProps {
     index: number;
 }
 
-const Stats = ({ starName, distance, mass, period, yearDiscovered }: Partial<Planet>) => {
+export const Stats = ({ starName, distance, mass, period, yearDiscovered }: Partial<Planet>) => {
     return (
         <div className="stats-container">
             <h3 className="stats-header">Stats</h3>

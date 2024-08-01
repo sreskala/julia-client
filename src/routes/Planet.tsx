@@ -1,6 +1,10 @@
 import axios from "axios";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, Link } from "react-router-dom";
 import { Planet as PlanetType } from "../types/Planet";
+import { LavaPlanet } from "../models/Planet";
+import { Stats } from "../components/SinglePlanet";
+
+import "./planets.css";
 
 const base_route = import.meta.env.VITE_API_ROUTE;
 
@@ -14,9 +18,6 @@ export async function loader({ params }) {
     
         const planetData: PlanetType = res.data
 
-        console.log('PLANET ==> ', planetData)
-        console.log(typeof planetData)
-
         if (typeof planetData === "string") {
             if (planetData === "Nothing") {
                 return {}
@@ -29,19 +30,42 @@ export async function loader({ params }) {
     }
 }
 
+// export type Planet = {
+//     id: number;
+//     name: string;
+//     eponym: string;
+//     starName: string;
+//     distance: number;
+//     mass: number;
+//     period: number;
+//     yearDiscovered:number;
+// }
+
 function Planet() {
     //@ts-ignore
     const { planetData } = useLoaderData()
     
     if (!planetData) {
         return (
-            <p>Uhoh!</p>
+            <div>
+                <h1>Uh-Oh!</h1>
+                <p>This planet doesn't exist in our system!</p>
+                <Link to="/">CLick here to go back to home base</Link>
+            </div>
         )
     }
     return (
         <>
-        <h1>I'm a planet baby</h1>
-        <p>{planetData?.name}</p>
+        <div className="single-planet-container">
+            <LavaPlanet />
+        </div>
+        <div className="single-planet-data-container">
+            <h1 className="planet-title">{planetData?.name}</h1>
+            <h2 className="planet-subtitle">{planetData?.eponym}</h2>
+            <hr />
+            <Stats starName={planetData?.starName} distance={planetData?.distance} mass={planetData?.mass} period={planetData?.period} yearDiscovered={planetData?.yearDiscovered}/>
+            <Link className="planet-btn" to="/planets">Go back</Link>
+        </div>
         </>
     )
 }
